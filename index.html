@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullStackWebDev</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lilita+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <script src="index.js" defer></script>
+
+    <link rel="icon" href="assets/logo.png">
+</head>
+<body>
+
+    <header>
+        <nav class="hero">
+            <h1 class="logo">
+                <a href="#home" id="logo-link">
+                    <img src="assets/logo.png" alt="WnM">
+                </a>
+            </h1>
+
+            <div class="nav-tabs">
+                <a href="#weather">weather</a>
+                <a href="#location">location</a>
+                <a href="#movies">movies</a>
+            </div>
+
+            <div class="nav-right">
+                <button class="icon-btn" id="refreshBtn">↻</button>
+                <button class="icon-btn" id="settingsBtn">⚙</button>
+            </div>
+        </nav>
+    </header>
+<!-- ------------------------------------------------------------------------- -->
+    <main>
+        <section class="page" id="home">
+
+            <div class="hub-hero">
+                    <h1 id="hubGreeting">Hello</h1>
+                    <p id="hubDate">—</p>
+            </div>
+
+            <div class="hub">
+                <div class="hub-card" data-target="weather">
+                    <div class="hub-icon">
+                        <img src="assets/weather.png" alt="Weather">
+                    </div>
+                    <h2 class="hub-title">Weather</h2>
+                    <p class="hub-sub">Live forecasts, hourly and 7-day outlooks for any city.</p>
+                    <span class="hub-cta">Explore weather →</span>
+                </div>
+        
+                <div class="hub-card" data-target="movies">
+                    <div class="hub-icon">
+                        <img src="assets/movies.png" alt="Movies">
+                    </div>                    
+                    <h2 class="hub-title">Movies</h2>
+                    <p class="hub-sub">Search any movie for posters, cast, plot and runtime.</p>
+                    <span class="hub-cta">Browse movies →</span>
+                </div>
+            </div>
+        </section>
+<!-- -------------------------------------------------------------------- -->
+
+        <section class="weather" id="weather">
+            <div class="location-tab">
+                <div class="location-info">
+                    <h1 id="homeLocation">Kasaragod, Kerala</h1>
+                    <p id="homeUpdated">Loading...</p>
+                </div>
+            
+                <div class="search-box">
+                    <span>🔍</span>
+                    <input type="text" id="homeSearch" placeholder="search your city..">
+                </div>
+            </div>
+        
+            <div class="current-card">
+                <div class="current-left">
+                    <h2 id="homeCondition">Loading...</h2>
+                    <div class="temp"><span id="homeTemp">--</span><span>°</span></div>
+                    <p class="feels-like" id="homeFeels">Humidity -- · Wind --</p>
+                </div>
+            
+                <div class="current-right">
+                    <p class="condition" id="homeDesc">fetching latest weather...</p>
+                    <div class="details-grid">
+                        <div class="detail-item" id="homeWind">💨 -- km/h</div>
+                        <div class="detail-item" id="homeHumidity">💧 --%</div>
+                        <div class="detail-item" id="homeSunrise">🌅 7:08 AM</div>
+                        <div class="detail-item" id="homeSunset">🌇 6:47 PM</div>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="hourly-section">
+                <div class="section-header">
+                    <h3>Hourly forecast</h3>
+                    <a href="#">Full forecast →</a>
+                </div>
+                <div class="hourly-scroll" id="hourlyScroll"></div>
+            </section>
+
+            <section class="daily-section">
+                <div class="section-header">
+                    <h3>7-day forecast</h3>
+                </div>
+                <div class="daily-list" id="dailyList"></div>
+            </section>
+        </section>
+            
+
+<!-- ----------------------------------------------------------- -->
+        <section id="location" class="page">
+            <div class="location-header">
+                <div>
+                    <h2>Saved Locations</h2>
+                    <p>Tap a city to view its forecast</p>
+                </div>
+            
+                <div class="search-box">
+                    <span>🔍</span>
+                    <input type="text" id="locationSearch" placeholder="add a city..">
+                </div>
+            </div>
+        
+            <div class="location-list" id="locationList"></div>
+        
+            <p class="location-empty" id="locationEmpty" style="display:none;">
+                No saved locations yet. Search above to add one.
+            </p>
+        </section>
+
+<!-- ------------------------------MOVIES APP------------------------- -->
+        <section class="page" id="movies">
+            <div class="movies-header">
+                <div>
+                    <h2 class="movies-header-h2">Movies</h2>
+                    <p>Search any movie to see details</p>
+                </div>
+
+                <div class="search-box">
+                    <span>🔍</span>
+                    <input type="text" id="movieInput" placeholder="search a movie..">
+                </div>
+            </div>
+
+            <p id="movieError" class="movie-error"></p>
+
+            <div id="movieGrid" class="movie-grid"></div>
+            <p id="movieEmpty" class="movie-empty">Search a movie above to get started.</p>
+
+            <div id="movieDetail" class="movie-detail" style="display: none;">
+                <div class="movie-detail-inner">
+                <button id="closeDetail" class="card-btn remove" title="Close">X</button>
+                
+                    <img id="detailPoster" alt="movie poster">
+
+                    <div class="movie-detail-text">
+                        <h3 id="detailTitle"></h3>
+
+                        <p class="movie-meta">
+                            <span id="detailYear"></span>
+                            <span id="detailRuntime"></span>
+                        </p>
+
+                        <p id="detailPlot"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+<!-- ------------------------------------------------------------ -->
+    <footer>
+        <div class="footer-links">
+            <a href="#home">home</a>
+            <a href="#weather">weather</a>
+            <a href="#location">location</a>
+            <a href="#movies">movies</a>
+        </div>
+        <p>&copy; WnM · Built with plain HTML, CSS & JavaScript</p>
+    </footer>
+</body>
+</html>
