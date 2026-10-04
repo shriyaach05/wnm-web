@@ -13,14 +13,14 @@ Built with plain HTML, CSS, and JavaScript.
 ## Folder structure
 
 wnm/
-├── index.html
-├── style.css
-├── app.js ← all the app logic
-├── index.js ← page navigation + boot
-└── assets/
-    ├── logo.png
-    ├── weather.png
-    └── movies.png
+- index.html
+- style.css
+- app.js ← all the app logic
+- index.js ← page navigation + boot
+- assets/
+    - logo.png
+    - weather.png
+    - movies.png
 
 ## Live demo
 
