@@ -11,7 +11,7 @@ Built with plain HTML, CSS, and JavaScript.
 - **Movies** — search any movie, see a grid of results, click one for details
 
 ## Folder structure
-
+```
 wnm/
 - index.html
 - style.css
@@ -21,6 +21,7 @@ wnm/
     - logo.png
     - weather.png
     - movies.png
+```
 
 ## Live demo
 
