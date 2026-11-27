@@ -1,4 +1,4 @@
-# WnM — Weather 'n' Movies
+# WnM - Weather and Movies : Live city forecasts and movie picks, all in one sleek web app.
 
 A small web app that shows live weather for any city and lets you search movies.
 Built with plain HTML, CSS, and JavaScript.
